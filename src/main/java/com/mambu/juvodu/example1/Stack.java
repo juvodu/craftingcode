@@ -1,4 +1,4 @@
-package com.mambu.juvodu;
+package com.mambu.juvodu.example1;
 
 import java.util.ArrayList;
 import java.util.List;

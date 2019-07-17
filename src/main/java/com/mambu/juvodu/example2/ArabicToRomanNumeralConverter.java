@@ -1,4 +1,4 @@
-package com.mambu.juvodu;
+package com.mambu.juvodu.example2;
 
 /**
  * Converter from arabic to roman numerals
