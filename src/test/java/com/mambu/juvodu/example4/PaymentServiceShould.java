@@ -15,8 +15,8 @@ import org.junit.Test;
 public class PaymentServiceShould {
 
     private final PaymentGateway paymentGatewayMock = mock(PaymentGateway.class);
-    private final UserService userServiceMock = mock(UserService.class);
-    private final PaymentService paymentService = new PaymentService(userServiceMock, paymentGatewayMock);
+    private final UserValidator userValidatorMock = mock(UserValidator.class);
+    private final PaymentService paymentService = new PaymentService(userValidatorMock, paymentGatewayMock);
 
     @Test
     public void delegateToPaymentGatewayIfUserValid() {
@@ -24,7 +24,7 @@ public class PaymentServiceShould {
         // setup
         User user = new User();
         PaymentDetails paymentDetails = new PaymentDetails();
-        when(userServiceMock.isValid(user)).thenReturn(true);
+        when(userValidatorMock.isValid(user)).thenReturn(true);
 
         // execute
         paymentService.processPayment(user, paymentDetails);
@@ -39,7 +39,7 @@ public class PaymentServiceShould {
         // setup
         User user = new User();
         PaymentDetails paymentDetails = new PaymentDetails();
-        when(userServiceMock.isValid(user)).thenReturn(false);
+        when(userValidatorMock.isValid(user)).thenReturn(false);
 
         // execute
         try {

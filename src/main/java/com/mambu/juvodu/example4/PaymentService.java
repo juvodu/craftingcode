@@ -7,17 +7,17 @@ package com.mambu.juvodu.example4;
  */
 public class PaymentService {
 
-    private final UserService userService;
+    private final UserValidator userValidator;
     private final PaymentGateway paymentGateway;
 
-    public PaymentService(UserService userService, PaymentGateway paymentGateway) {
-        this.userService = userService;
+    public PaymentService(UserValidator userValidator, PaymentGateway paymentGateway) {
+        this.userValidator = userValidator;
         this.paymentGateway = paymentGateway;
     }
 
     public void processPayment(User user, PaymentDetails paymentDetails) {
 
-        if (!userService.isValid(user)) {
+        if (!userValidator.isValid(user)) {
             throw new IllegalArgumentException("User is invalid.");
         }
 
