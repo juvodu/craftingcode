@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.mambu.juvodu.example1.Stack;
-
 /**
  * Test suite for {@link Stack}
  *
